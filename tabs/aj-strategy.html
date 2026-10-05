@@ -1,0 +1,342 @@
+<!-- View Switcher -->
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem; flex-wrap:wrap; gap:1rem; border-bottom:1px solid var(--border-color); padding-bottom:1rem;">
+        <div>
+            <h2 style="font-size:1.3rem; font-weight:800; color:var(--text-main); display:flex; align-items:center; gap:8px;">
+                <span>🧠 AJ Strategy & Systematic DSS Engine</span>
+                <span class="badge" style="background:rgba(99,102,241,0.2); color:#818cf8; font-size:0.7rem;">AI & QUANT OPTIONS SELLING</span>
+            </h2>
+            <p style="font-size:0.75rem; color:var(--text-dim); margin-top:2px;">
+                Automated Decision Support System based on Atul Jain & Santosh Mudgal's systematic options selling framework.
+            </p>
+        </div>
+        <div style="display:flex; gap:0.5rem;">
+            <button id="viewToggleQuick" onclick="switchAjView('quick')" class="tab-btn active" style="padding:0.4rem 0.9rem; font-size:0.75rem;">
+                ⚡ Quick Card (Premarket View)
+            </button>
+            <button id="viewToggleFull" onclick="switchAjView('full')" class="tab-btn" style="padding:0.4rem 0.9rem; font-size:0.75rem;">
+                🎛️ Full DSS 23-Section Terminal
+            </button>
+        </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- VIEW 1: QUICK CARD (V2A Rebuilt for Fast Decision Order)                 -->
+    <!-- ========================================================================= -->
+    <div id="ajViewQuick" style="display:block; max-width:680px; margin:0 auto;">
+        
+        <!-- 1 · Where we stand -->
+        <div style="margin-bottom:12px;">
+            <h1 style="font-size:1.15rem; font-weight:800; margin-bottom:4px;">⚡ Quick Card — NIFTY Surveillance & Bias</h1>
+            <div style="font-size:0.75rem; color:var(--text-dim);">Live Neo Data Snapshot · 2026-10-05 06:15:00 · Automated Strike Math</div>
+        </div>
+
+        <div class="card" style="margin-bottom:12px;">
+            <span class="badge bias-wait" style="font-size:0.85rem; padding:6px 14px; border-radius:8px;">WAIT — NO ENTRY BEFORE 09:45</span>
+            <div style="margin-top:10px; display:flex; flex-wrap:wrap; gap:6px;">
+                <span class="chip">Regime <b>DOWNTREND, OVERSOLD — ceiling built above, gap near prior low</b></span>
+                <span class="chip">Bias <b class="dn">BEARISH, WITH TREND</b></span>
+                <span class="chip">Expected Move <b>±204.2 pts</b></span>
+                <span class="chip">Sell Score <b>67/100</b></span>
+                <span class="chip">India VIX <b>14.46</b></span>
+            </div>
+        </div>
+
+        <!-- 2 · The one thing -->
+        <div class="card" style="margin-bottom:12px;">
+            <div class="h" style="font-size:0.75rem; text-transform:uppercase; color:var(--text-dim); margin-bottom:6px; letter-spacing:1px;">The one thing that matters today</div>
+            <div style="font-size:0.95rem; font-weight:600; line-height:1.5;">
+                BEARISH, WITH TREND posture with ±204.2 pts daily expected move. Selling is authorized ONLY on a pushed-back level: one side, defined risk, 100 wide spread after a closed 15m candle.
+            </div>
+        </div>
+
+        <!-- 3 · What I do, and when (IF -> THEN Branches) -->
+        <div class="card" style="margin-bottom:12px;">
+            <div class="h" style="font-size:0.75rem; text-transform:uppercase; color:var(--text-dim); margin-bottom:6px; letter-spacing:1px;">What I do, and when (IF → THEN, Never Both)</div>
+            <div style="font-size:0.82rem; color:var(--text-muted); margin-bottom:10px;">
+                Let the 09:15-09:30 candle close. Wait for the 09:45 verdict. Sell only a confirmed pushed-back side:
+            </div>
+
+            <!-- Call Branch -->
+            <div style="background:var(--bg-card-hover); border:1px solid var(--border-color); border-left:4px solid #f43f5e; border-radius:10px; padding:10px 14px; margin-bottom:10px;">
+                <div style="font-size:0.78rem; color:var(--text-dim);">IF a 15-minute candle trades into 22600-22630 and closes back BELOW 22615</div>
+                <div style="font-size:0.92rem; font-weight:700; color:#fff; margin:4px 0;">THEN sell 22450 CE, buy 22550 CE, for at least 30 points credit</div>
+                <div style="font-size:0.75rem; color:var(--text-muted);">Ceiling is 0.95 of an EM away. Stop at 60 pts on a 15m close above 22450.</div>
+            </div>
+
+            <!-- Put Branch -->
+            <div style="background:var(--bg-card-hover); border:1px solid var(--border-color); border-left:4px solid #10b981; border-radius:10px; padding:10px 14px;">
+                <div style="font-size:0.78rem; color:var(--text-dim);">IF a 15-minute candle trades into 22207-22237 and closes back ABOVE 22222</div>
+                <div style="font-size:0.92rem; font-weight:700; color:#fff; margin:4px 0;">THEN sell 22350 PE, buy 22250 PE, for at least 30 points credit</div>
+                <div style="font-size:0.75rem; color:var(--text-muted);">Floor is 0.98 of an EM away. Stop at 60 pts on a 15m close below 22350.</div>
+            </div>
+
+            <div style="font-size:0.75rem; color:var(--text-dim); margin-top:10px;">
+                ⚠️ One branch or the other, never both, and neither until the candle has closed. Systematic size: <b>12 lots</b> (Two-constraint stop formula).
+            </div>
+        </div>
+
+        <!-- 4 · What kills it -->
+        <div class="card" style="margin-bottom:12px;">
+            <div class="h" style="font-size:0.75rem; text-transform:uppercase; color:var(--text-dim); margin-bottom:6px; letter-spacing:1px;">What kills it (Hard Invalidation)</div>
+            <div style="border-left:3px solid var(--color-unwind); background:rgba(245,158,11,0.08); border-radius:0 8px 8px 0; padding:10px 12px; font-size:0.85rem; font-weight:600;">
+                A 15m close above ₹22615 kills the call branch. A 15m close below ₹22222 kills the put branch.
+            </div>
+            <div style="font-size:0.75rem; color:var(--text-dim); margin-top:8px;">
+                Stand down entirely if: India VIX surges above 16.50, first-hour range exceeds 204 points, or intraday PCR collapses.
+            </div>
+        </div>
+
+        <!-- 5 · Levels near price -->
+        <div class="card" style="margin-bottom:12px;">
+            <div class="h" style="font-size:0.75rem; text-transform:uppercase; color:var(--text-dim); margin-bottom:6px; letter-spacing:1px;">Levels near price (Spot ₹22,421.95)</div>
+            <table class="data-table" style="font-size:0.78rem;">
+                <thead>
+                    <tr><th>Level</th><th>What it is</th><th>Distance in Points &amp; EM</th></tr>
+                </thead>
+                <tbody>
+                    
+        <tr>
+            <td class="fl num" style="font-weight:700;">₹22,809.92</td>
+            <td>Second Resistance (R2 Breakout)</td>
+            <td>388.0 pts above · 1.9 EM</td>
+        </tr>
+        
+        <tr>
+            <td class="fl num" style="font-weight:700;">₹22,615.93</td>
+            <td>First Resistance (R1 Ceiling)</td>
+            <td>194.0 pts above · 0.95 EM</td>
+        </tr>
+        
+        <tr>
+            <td class="fl num" style="font-weight:700;">₹22,450.00</td>
+            <td>Max Pain Strike (Heavy Call OI)</td>
+            <td>28.0 pts above · 0.14 EM</td>
+        </tr>
+        
+        <tr>
+            <td class="fl num" style="font-weight:700;">₹22,416.62</td>
+            <td>Classic Central Floor Pivot (P)</td>
+            <td>5.3 pts below · 0.03 EM</td>
+        </tr>
+        
+        <tr>
+            <td class="fl num" style="font-weight:700;">₹22,222.63</td>
+            <td>First Support (S1 Floor)</td>
+            <td>199.3 pts below · 0.98 EM</td>
+        </tr>
+        
+        <tr>
+            <td class="fl num" style="font-weight:700;">₹22,268.80</td>
+            <td>Estimated Gamma Flip Boundary</td>
+            <td>153.2 pts below · 0.75 EM</td>
+        </tr>
+        
+        <tr>
+            <td class="fl num" style="font-weight:700;">₹22,023.32</td>
+            <td>Second Support (S2 Breakdown)</td>
+            <td>398.6 pts below · 1.95 EM</td>
+        </tr>
+        
+                </tbody>
+            </table>
+            <div style="font-size:0.7rem; color:var(--text-dim); margin-top:8px;">
+                Levels are measured against session Expected Move (1 EM = 204.2 pts). Anything beyond 1.0 EM is statistically protected for intraday premium selling.
+            </div>
+        </div>
+
+        <!-- 6 · The Clock -->
+        <div class="card" style="margin-bottom:12px;">
+            <div class="h" style="font-size:0.75rem; text-transform:uppercase; color:var(--text-dim); margin-bottom:6px; letter-spacing:1px;">The Execution Clock</div>
+            <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:8px; text-align:center;">
+                <div style="background:var(--bg-card-hover); padding:8px; border-radius:8px; border:1px solid var(--border-color);">
+                    <b style="font-size:0.95rem; color:var(--text-main);">09:45</b>
+                    <div style="font-size:0.68rem; color:var(--text-dim); margin-top:2px;">Earliest Entry</div>
+                </div>
+                <div style="background:var(--bg-card-hover); padding:8px; border-radius:8px; border:1px solid var(--border-color);">
+                    <b style="font-size:0.95rem; color:var(--color-bullish);">13:00</b>
+                    <div style="font-size:0.68rem; color:var(--text-dim); margin-top:2px;">Bank 50-60%</div>
+                </div>
+                <div style="background:var(--bg-card-hover); padding:8px; border-radius:8px; border:1px solid var(--border-color);">
+                    <b style="font-size:0.95rem; color:var(--color-unwind);">13:55</b>
+                    <div style="font-size:0.68rem; color:var(--text-dim); margin-top:2px;">No New Risk</div>
+                </div>
+                <div style="background:var(--bg-card-hover); padding:8px; border-radius:8px; border:1px solid var(--border-color);">
+                    <b style="font-size:0.95rem; color:var(--color-bearish);">15:15</b>
+                    <div style="font-size:0.68rem; color:var(--text-dim); margin-top:2px;">Flat Everywhere</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- VIEW 2: FULL DSS 23-SECTION TERMINAL                                     -->
+    <!-- ========================================================================= -->
+    <div id="ajViewFull" style="display:none;">
+
+        <!-- Sticky Decision Cockpit Strip -->
+        <div style="background:linear-gradient(180deg, rgba(17,24,39,0.95), rgba(15,23,42,0.95)); border:1px solid var(--border-color); border-radius:14px; padding:12px 18px; margin-bottom:1.5rem; display:flex; flex-wrap:wrap; gap:12px 24px; align-items:center; box-shadow:var(--shadow-md);">
+            <div><span style="font-size:0.68rem; color:var(--text-dim); text-transform:uppercase; display:block;">Sell?</span><b class="wa">WAIT — NO ENTRY BEFORE 09:45</b></div>
+            <div><span style="font-size:0.68rem; color:var(--text-dim); text-transform:uppercase; display:block;">Best Index</span><b>NIFTY 50 Benchmark</b></div>
+            <div><span style="font-size:0.68rem; color:var(--text-dim); text-transform:uppercase; display:block;">Strategy</span><b>100-Wide Defined Risk Spread</b></div>
+            <div><span style="font-size:0.68rem; color:var(--text-dim); text-transform:uppercase; display:block;">Position Size</span><b>12 Lots (Two-Constraint)</b></div>
+            <div><span style="font-size:0.68rem; color:var(--text-dim); text-transform:uppercase; display:block;">Entry Window</span><b>09:45 IST Confirmation</b></div>
+            <div><span style="font-size:0.68rem; color:var(--text-dim); text-transform:uppercase; display:block;">Regime</span><b>DOWNTREND, OVERSOLD — ceiling built...</b></div>
+            <div><span style="font-size:0.68rem; color:var(--text-dim); text-transform:uppercase; display:block;">Review Clock</span><b>09:45, 11:15, 13:00, 13:55</b></div>
+        </div>
+
+        <!-- Section 1 & 2 Grid -->
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:1.25rem; margin-bottom:1.5rem;">
+            
+            <!-- S1 Executive Scorecard -->
+            <div class="card">
+                <div class="card-title" style="margin-bottom:1rem; font-size:1rem; display:flex; justify-content:space-between;">
+                    <span>S1 · Executive Sell Scorecard</span>
+                    <span style="font-size:0.75rem; color:var(--accent-blue);">Rubric Total: 100</span>
+                </div>
+                <div style="display:flex; align-items:center; gap:20px; margin-bottom:1.25rem;">
+                    <div style="width:100px; height:100px; border-radius:50%; background:conic-gradient(#f59e0b 67%, rgba(255,255,255,0.08) 0); display:flex; align-items:center; justify-content:center; flex:0 0 auto;">
+                        <div style="width:78px; height:78px; border-radius:50%; background:var(--bg-secondary); display:flex; flex-direction:column; align-items:center; justify-content:center;">
+                            <span style="font-size:1.6rem; font-weight:800;">67</span>
+                            <span style="font-size:0.58rem; color:var(--text-dim); text-transform:uppercase;">SELL SCORE</span>
+                        </div>
+                    </div>
+                    <div style="flex:1; font-size:0.78rem;">
+                        <div style="margin-bottom:4px;">Market Bias: <b class="dn">BEARISH, WITH TREND</b></div>
+                        <div style="margin-bottom:4px;">Expected Move: <b>±204.2 pts</b></div>
+                        <div>Regime Fit: <b>DOWNTREND, OVERSOLD — ceiling built abov...</b></div>
+                    </div>
+                </div>
+
+                <!-- Rubric Breakdown -->
+                <div style="font-size:0.72rem; color:var(--text-dim); text-transform:uppercase; margin-bottom:6px; letter-spacing:0.5px;">6-Component Rubric Breakdown</div>
+                <div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:8px; font-size:0.75rem;">
+                    <div style="background:var(--bg-card-hover); padding:6px 10px; border-radius:6px; display:flex; justify-content:space-between;">
+                        <span>Pin / Structure:</span><b>18/25</b>
+                    </div>
+                    <div style="background:var(--bg-card-hover); padding:6px 10px; border-radius:6px; display:flex; justify-content:space-between;">
+                        <span>Premium Adequacy:</span><b>19/25</b>
+                    </div>
+                    <div style="background:var(--bg-card-hover); padding:6px 10px; border-radius:6px; display:flex; justify-content:space-between;">
+                        <span>Global / Gap Calm:</span><b>7/15</b>
+                    </div>
+                    <div style="background:var(--bg-card-hover); padding:6px 10px; border-radius:6px; display:flex; justify-content:space-between;">
+                        <span>Event Risk (inv):</span><b>10/15</b>
+                    </div>
+                    <div style="background:var(--bg-card-hover); padding:6px 10px; border-radius:6px; display:flex; justify-content:space-between;">
+                        <span>Trend Risk (inv):</span><b>5/10</b>
+                    </div>
+                    <div style="background:var(--bg-card-hover); padding:6px 10px; border-radius:6px; display:flex; justify-content:space-between;">
+                        <span>Liquidity / Breadth:</span><b>8/10</b>
+                    </div>
+                </div>
+            </div>
+
+            <!-- S11 Primary Trade Card & Sizing Math -->
+            <div class="card" style="border:1px solid rgba(99,102,241,0.3); background:linear-gradient(135deg, rgba(30,41,59,0.7), rgba(17,24,39,0.8));">
+                <div class="card-title" style="margin-bottom:0.75rem; font-size:1rem; display:flex; justify-content:space-between;">
+                    <span>S11 · Primary Trade Card &amp; Sizing Engine</span>
+                    <span class="badge badge-long">DEFINED RISK</span>
+                </div>
+                <div style="font-size:0.88rem; font-weight:700; color:var(--accent-blue); margin-bottom:0.75rem;">
+                    THEN sell 22450 CE, buy 22550 CE, for at least 30 points credit
+                </div>
+                <div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:8px; font-size:0.78rem; margin-bottom:1rem;">
+                    <div>Entry Window: <b>09:45 IST (After 15m Close)</b></div>
+                    <div>Est. Credit: <b>≥ 30 points (30% of Width)</b></div>
+                    <div>Stop Loss: <b>60 pts (2x Credit) on 15m Close</b></div>
+                    <div>Target: <b>15 pts (50% Decay) or 13:00 Clock</b></div>
+                    <div>Stop Loss Cost: <b style="color:#f43f5e;">₹1950 / lot</b></div>
+                    <div>Max Gap Cost: <b style="color:#f43f5e;">₹4550 / lot</b></div>
+                </div>
+
+                <div style="background:rgba(0,0,0,0.3); border:1px solid var(--border-color); border-radius:8px; padding:10px; font-size:0.72rem; color:var(--text-muted);">
+                    <b style="color:var(--text-main);">Two-Constraint Sizing Engine Math:</b><br>
+                    • Stop Limit: floor(₹24,000 / ₹1950) = <b>12 lots</b><br>
+                    • Gap Loss Limit: floor(₹55,000 / ₹4550) = <b>12 lots</b><br>
+                    👉 <b>Authorized Size: 12 lots</b> (Constrained by the tighter limit).
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Section 15 & 20: Risk Gauges & Pre-Trade Checklist -->
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:1.25rem; margin-bottom:1.5rem;">
+            
+            <!-- S15 Risk Dashboard Gauges -->
+            <div class="card">
+                <div class="card-title" style="margin-bottom:0.75rem; font-size:1rem;">S15 · Risk Gauges (Greeks &amp; Macro)</div>
+                <div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:10px; font-size:0.75rem;">
+                    <div style="background:var(--bg-card-hover); padding:8px; border-radius:6px;">
+                        <div style="display:flex; justify-content:space-between;"><span>Gamma Risk</span><b>45/100</b></div>
+                        <div class="gauge" style="--v:45; --gc:#f59e0b;"><i></i></div>
+                    </div>
+                    <div style="background:var(--bg-card-hover); padding:8px; border-radius:6px;">
+                        <div style="display:flex; justify-content:space-between;"><span>Theta Opportunity</span><b>65/100</b></div>
+                        <div class="gauge" style="--v:65; --gc:#10b981;"><i></i></div>
+                    </div>
+                    <div style="background:var(--bg-card-hover); padding:8px; border-radius:6px;">
+                        <div style="display:flex; justify-content:space-between;"><span>Gap Risk</span><b>70/100</b></div>
+                        <div class="gauge" style="--v:70; --gc:#f43f5e;"><i></i></div>
+                    </div>
+                    <div style="background:var(--bg-card-hover); padding:8px; border-radius:6px;">
+                        <div style="display:flex; justify-content:space-between;"><span>Vega Risk</span><b>50/100</b></div>
+                        <div class="gauge" style="--v:50; --gc:#f59e0b;"><i></i></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- S20 Pre-Trade Checklist & Leak-Guard -->
+            <div class="card">
+                <div class="card-title" style="margin-bottom:0.5rem; font-size:1rem;">S20 · Pre-Trade Checklist &amp; Leak-Guard</div>
+                <div style="font-size:0.78rem;">
+                    <label class="ck" style="display:flex; align-items:center; gap:8px; margin-bottom:6px; cursor:pointer;">
+                        <input type="checkbox" checked> <span>09:15-09:30 opening candle has closed without blind entries.</span>
+                    </label>
+                    <label class="ck" style="display:flex; align-items:center; gap:8px; margin-bottom:6px; cursor:pointer;">
+                        <input type="checkbox" checked> <span>Strike sold was tested and held in TODAY'S session (No untested levels).</span>
+                    </label>
+                    <label class="ck" style="display:flex; align-items:center; gap:8px; margin-bottom:6px; cursor:pointer;">
+                        <input type="checkbox" checked> <span>Spread has defined risk wings (Naked positions strictly prohibited).</span>
+                    </label>
+                    <label class="ck" style="display:flex; align-items:center; gap:8px; margin-bottom:6px; cursor:pointer;">
+                        <input type="checkbox" checked> <span>Stop loss set on a 15m candle close, never on an intraday wick touch.</span>
+                    </label>
+
+                    <div style="color:#f43f5e; font-weight:700; font-size:0.72rem; text-transform:uppercase; margin:8px 0 4px 0;">
+                        ⛔ Leak-Guard (4 Documented Destructive Behaviors):
+                    </div>
+                    <div style="font-size:0.72rem; color:var(--text-muted); line-height:1.4;">
+                        1. Never sell a side nobody defended today.<br>
+                        2. Never enter before 09:45.<br>
+                        3. Never size lots without enforcing the stop.<br>
+                        4. Never turn a missed setup into naked risk.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Client-Side View Switcher Script -->
+    <script>
+    function switchAjView(view) {
+        const quick = document.getElementById("ajViewQuick");
+        const full = document.getElementById("ajViewFull");
+        const btnQuick = document.getElementById("viewToggleQuick");
+        const btnFull = document.getElementById("viewToggleFull");
+
+        if (view === 'quick') {
+            if (quick) quick.style.display = 'block';
+            if (full) full.style.display = 'none';
+            if (btnQuick) btnQuick.classList.add('active');
+            if (btnFull) btnFull.classList.remove('active');
+        } else {
+            if (quick) quick.style.display = 'none';
+            if (full) full.style.display = 'block';
+            if (btnQuick) btnQuick.classList.remove('active');
+            if (btnFull) btnFull.classList.add('active');
+        }
+    }
+    </script>
