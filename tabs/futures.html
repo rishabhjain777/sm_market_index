@@ -1,0 +1,134 @@
+
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+        <h3 style="font-size:1.1rem; font-weight:700;">Index Futures Curve & Cost of Carry / Basis Spread</h3>
+        <input type="text" class="table-search-input" data-table="futuresTable" placeholder="🔍 Search futures..." style="background:rgba(30,41,59,0.8); border:1px solid var(--border-color); color:#fff; padding:0.4rem 0.8rem; border-radius:8px; font-size:0.8rem;">
+    </div>
+    <div class="table-wrap">
+        <table class="data-table" id="futuresTable">
+            <thead>
+                <tr>
+                    <th class="sortable">Index</th>
+                    <th class="sortable">Spot</th>
+                    <th class="sortable">Near Fut LTP</th>
+                    <th class="sortable">Near Chg%</th>
+                    <th class="sortable">Near OI</th>
+                    <th class="sortable">VWAP</th>
+                    <th class="sortable">Basis Spread</th>
+                    <th>Basis Status</th>
+                    <th class="sortable">Next Fut LTP</th>
+                    <th class="sortable">Next OI</th>
+                    <th class="sortable">Far Fut LTP</th>
+                    <th class="sortable">Far OI</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+        <tr>
+            <td><b>NIFTY 50</b> (NIFTY)</td>
+            <td>₹22,421.95</td>
+            <td style="font-weight:700; color:var(--accent-blue);">₹22,530.30</td>
+            <td>-0.78%</td>
+            <td>19,155,955</td>
+            <td>₹22,530.30</td>
+            <td style="font-weight:700;">108.35 pts</td>
+            <td><span class="badge badge-long">PREMIUM</span></td>
+            <td>₹22,638.00</td>
+            <td>2,252,640</td>
+            <td>₹22,779.30</td>
+            <td>201,890</td>
+        </tr>
+        
+        <tr>
+            <td><b>BANK NIFTY</b> (BANKNIFTY)</td>
+            <td>₹54,450.75</td>
+            <td style="font-weight:700; color:var(--accent-blue);">₹54,794.80</td>
+            <td>-0.38%</td>
+            <td>2,346,180</td>
+            <td>₹54,794.80</td>
+            <td style="font-weight:700;">344.05 pts</td>
+            <td><span class="badge badge-long">PREMIUM</span></td>
+            <td>₹55,091.80</td>
+            <td>162,510</td>
+            <td>₹55,397.40</td>
+            <td>15,960</td>
+        </tr>
+        
+        <tr>
+            <td><b>NIFTY FINANCIAL SERVICES</b> (FINNIFTY)</td>
+            <td>₹24,556.10</td>
+            <td style="font-weight:700; color:var(--accent-blue);">₹24,700.30</td>
+            <td>-0.38%</td>
+            <td>27,360</td>
+            <td>₹24,700.30</td>
+            <td style="font-weight:700;">144.20 pts</td>
+            <td><span class="badge badge-long">PREMIUM</span></td>
+            <td>₹24,880.30</td>
+            <td>240</td>
+            <td>₹25,015.00</td>
+            <td>0</td>
+        </tr>
+        
+        <tr>
+            <td><b>NIFTY MIDCAP SELECT</b> (MIDCPNIFTY)</td>
+            <td>₹13,562.75</td>
+            <td style="font-weight:700; color:var(--accent-blue);">₹13,616.50</td>
+            <td>-1.31%</td>
+            <td>2,035,800</td>
+            <td>₹13,616.50</td>
+            <td style="font-weight:700;">53.75 pts</td>
+            <td><span class="badge badge-long">PREMIUM</span></td>
+            <td>₹13,667.60</td>
+            <td>77,520</td>
+            <td>₹13,719.00</td>
+            <td>600</td>
+        </tr>
+        
+        <tr>
+            <td><b>NIFTY NEXT 50</b> (NIFTYNXT50)</td>
+            <td>₹68,981.35</td>
+            <td style="font-weight:700; color:var(--accent-blue);">₹69,210.40</td>
+            <td>-1.15%</td>
+            <td>16,675</td>
+            <td>₹69,210.40</td>
+            <td style="font-weight:700;">229.05 pts</td>
+            <td><span class="badge badge-long">PREMIUM</span></td>
+            <td>₹69,383.60</td>
+            <td>325</td>
+            <td>₹70,493.00</td>
+            <td>25</td>
+        </tr>
+        
+        <tr>
+            <td><b>BSE SENSEX</b> (SENSEX)</td>
+            <td>₹71,909.70</td>
+            <td style="font-weight:700; color:var(--accent-blue);">₹72,502.15</td>
+            <td>-0.70%</td>
+            <td>93,620</td>
+            <td>₹0.00</td>
+            <td style="font-weight:700;">592.45 pts</td>
+            <td><span class="badge badge-long">PREMIUM</span></td>
+            <td>₹73,096.40</td>
+            <td>10,860</td>
+            <td>₹73,505.60</td>
+            <td>560</td>
+        </tr>
+        
+        <tr>
+            <td><b>BSE BANKEX</b> (BANKEX)</td>
+            <td>₹61,356.13</td>
+            <td style="font-weight:700; color:var(--accent-blue);">₹61,921.10</td>
+            <td>-0.13%</td>
+            <td>180</td>
+            <td>₹0.00</td>
+            <td style="font-weight:700;">564.97 pts</td>
+            <td><span class="badge badge-long">PREMIUM</span></td>
+            <td>₹61,876.05</td>
+            <td>0</td>
+            <td>₹0.00</td>
+            <td>0</td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+    
